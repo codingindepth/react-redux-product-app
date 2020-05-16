@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Alert, Button } from "react-bootstrap";
-import * as productActions from "./redux/productActions";
+import * as productActions from "../redux/productActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-
-class ProductList extends React.Component {
+import ProdList from './ProductList';
+class ProductForm extends React.Component {
 
   // constructor(props) {
   //   super(props);
@@ -95,12 +95,7 @@ state = {
         <div class="row">
           <div class="col-md-12">&nbsp;</div>
         </div>
-      {this.props.products.map(course => (
-          <div key={course.productName}>{course.productName}{course.productCode}
-          {course.productdescription}
-          </div>
-        ))}
-
+        <ProdList products ={this.props.products} />
        </form>
 
        
@@ -109,7 +104,7 @@ state = {
 }
 
 
-ProductList.propTypes = {
+ProductForm.propTypes = {
   products: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
@@ -130,4 +125,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProductList);
+)(ProductForm);
