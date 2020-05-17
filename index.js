@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import './style.css';
 import HomePage from './components/pages/HomePage';
 import AboutPage from './components/pages/AboutPage';
-import { BrowserRouter,Route, Router,Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import Header from './components/common/Header';
 import ProductForm from './components/pages/ProductForm';
 import configureStore from './components/redux/configureStore';
@@ -21,16 +21,16 @@ class App extends Component {
   render() {
     return (
       <ReduxProvider store={store}>
-      <div className="container-fluid">     
-      <BrowserRouter>
-      <Header />
-     <Switch>
-        <Route exact path="/" component={HomePage} />
-         <Route path="/products" component={ProductForm} />
-        <Route path="/about" component={AboutPage} />
-      </Switch>
-       </BrowserRouter>
-      </div>
+        <div className="container-fluid">
+          <BrowserRouter>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/products" component={ProductForm} />
+              <Route path="/about" component={AboutPage} />
+            </Switch>
+          </BrowserRouter>
+        </div>
       </ReduxProvider>
     );
   }
